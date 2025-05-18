@@ -1,14 +1,16 @@
-class Calculator:
+from src.calculations.ICalculator import ICalculator
+from src.utils.math_utils import add, subtract, multiply, divide
+
+class Calculator(ICalculator):
+    
     def add(self, a, b):
-        return a + b
-    
+        return add(a, b)
+
     def subtract(self, a, b):
-        return a - b
-    
+        return subtract(a, b)
+
     def multiply(self, a, b):
-        return a * b
-    
+        return multiply(a, b)
+
     def divide(self, a, b):
-        if b == 0:
-            raise ValueError("Деление на ноль невозможно")
-        return a / b
+        return divide(a, b)
