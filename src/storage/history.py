@@ -1,16 +1,19 @@
 import json
 
 class Storage:
-    def __init__(self, filename="history.json"):
+    
+    def __init__(self, filename="src/storage/history.json"):
         self.filename = filename
 
-    def save(self, data):
+    def save(self, data: dict) -> None:
+        history = self.load()
+        history.append(data)
         with open(self.filename, "w") as file:
-            json.dump(data, file, indent=4)
+            json.dump(history, file, indent=4)
 
-    def load(self):
+    def load(self) -> list:
         try:
             with open(self.filename, "r") as file:
                 return json.load(file)
         except FileNotFoundError:
-            return {}
+            return []
