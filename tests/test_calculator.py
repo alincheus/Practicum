@@ -1,22 +1,23 @@
 import pytest
-from src.rpn.parser import RPNParser
+from src.calculations.calculator import Calculator
 
-parser = RPNParser()
+calculator = Calculator()
 
-def test_rpn_evaluation():
-    assert parser.evaluate("3 4 +") == 7
+def test_add():
+    assert calculator.add(2, 3) == 5
 
-def test_rpn_subtraction():
-    assert parser.evaluate("10 5 -") == 5
+def test_subtract():
+    assert calculator.subtract(10, 4) == 6
 
-def test_rpn_multiplication():
-    assert parser.evaluate("6 2 *") == 12
+def test_multiply():
+    assert calculator.multiply(3, 3) == 9
 
-def test_rpn_division():
-    assert parser.evaluate("8 4 /") == 2
+def test_divide():
+    assert calculator.divide(8, 2) == 4
 
-def test_rpn_invalid():
-    assert parser.evaluate("3 +") is None
+def test_divide_by_zero():
+    with pytest.raises(ValueError):
+        calculator.divide(5, 0)
 
-def test_rpn_complex_expression():
-    assert parser.evaluate("5 1 2 + 4 * + 3 -") == 14
+def test_large_numbers():
+    assert calculator.add(1_000_000, 1_000_000) == 2_000_000
