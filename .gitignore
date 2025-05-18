@@ -1,4 +1,10 @@
-bin/
-obj/
-.vs/
-*.userprefs
+__pycache__/  
+*.pyc  
+*.pyo  
+venv/  
+.env  
+*.log  
+debug.log  
+.vscode/  
+.idea/  
+.DS_Store 
