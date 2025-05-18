@@ -34,5 +34,17 @@
     {
         "operation": "3 * 3",
         "result": 9
+    },
+    {
+        "operation": "2 + 2",
+        "result": 4
+    },
+    {
+        "operation": "10 / 2",
+        "result": 5
+    },
+    {
+        "operation": "3 * 3",
+        "result": 9
     }
 ]
